@@ -8,20 +8,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      childPage: null,
-      user: null,
-      login: null,
-      username: "",
-      password: ""
+      detailView: null
     }
+    this.createDetailView = this.createDetailView.bind(this);
   }
+
+
+  createDetailView(e){
+    this.setState({detailView: e.target.id});
+  }
+
   render() {
+    let viewSwitcher = <Display detailView={this.state.createDetailView}/>
+    if(this.state.detailView){
+      console.log('switching view')
+      viewSwitcher = <Detail />
+    } 
     return (
       <div>
         <div id="header">forest.js</div>
         <div id="viewcontainer">
           <Search/>
-          <Display/>
+          {viewSwitcher}
         </div>
       </div>
     )

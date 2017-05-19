@@ -5,14 +5,28 @@
 }
 
 .holder{
-  border: solid white 1px;
+  // border: solid white 1px;
   padding: 5px;
   display: flex;
 }
 
-
-
-
+.content{
+    margin:auto;
+    width:80%;
+    min-height: 30px;
+    max-width:150px;
+    height:20%;
+    float: left;
+    background:white;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: hand;
+}
+.content:hover{
+    background: #96ee89;
+}
 
 
 //

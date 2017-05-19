@@ -8,8 +8,8 @@ class Table extends Component {
       user: null
     }
     this.createTable = this.createTable.bind(this);
+    this.detailView = this.props.detailView.bind(this);
   }
-
   createTable(){
     let width = "25%"
     let holderStyle={
@@ -44,31 +44,29 @@ class Table extends Component {
       "flexDirection":"column"
     }
 
-
-
     return(
       <div className="holder" style={holderStyle}>
-        <div className="holder" style={holderStyle2}><div id="1" onClick={()=>this.props.detailView} className ="content">Node 1</div></div>
+        <div className="holder" style={holderStyle2}><div id='1' onClick={this.detailView} className ="content">Node 1</div></div>
         <div className="holder" style={holderStyle3}>
           <div className="holder" style={holderStyle4}>
-            <div className="holder" style={holderStyle5}><div className ="content">Node 2</div></div>
+            <div className="holder" style={holderStyle5}><div id='2' onClick={this.detailView} className ="content">Node 2</div></div>
             <div className = "holder" style={holderStyle6}>
               <div className="holder" style={holderStyle4}>
-                <div className = "holder" style={holderStyle5}><div className ="content">Node 4</div></div>
-                <div className = "holder" style={holderStyle}><div className ="content">Node 6</div></div>
+                <div className = "holder" style={holderStyle5}><div id='4' onClick={this.detailView} className ="content">Node 4</div></div>
+                <div className = "holder" style={holderStyle}><div id='6' onClick={this.detailView} className ="content">Node 6</div></div>
               </div>
               <div className="holder" style={holderStyle4}>
-                <div className = "holder" style={holderStyle5}><div className ="content">Node 5</div></div>
+                <div className = "holder" style={holderStyle5}><div id='5' onClick={this.detailView} className ="content">Node 5</div></div>
                 <div className = "holder" style={holderStyle6}>
-                  <div className = "holder" style={holderStyle4}><div className ="content">Node 7</div></div>
-                  <div className = "holder" style={holderStyle4}><div className ="content">Node 8</div></div>
+                  <div className = "holder" style={holderStyle4}><div id='7' onClick={this.detailView} className ="content">Node 7</div></div>
+                  <div className = "holder" style={holderStyle4}><div id='8' onClick={this.detailView} className ="content">Node 8</div></div>
                 </div>
               </div>
             </div>
           </div>
           <div className="holder" style={holderStyle4}>
-            <div className = "holder" style={holderStyle5}><div className ="content">Node 3</div></div>
-            <div className = "holder" style={holderStyle}><div className ="content">Node 9</div></div>
+            <div className = "holder" style={holderStyle5}><div id='3' onClick={this.detailView} className ="content">Node 3</div></div>
+            <div className = "holder" style={holderStyle}><div id='9' onClick={this.detailView} className ="content">Node 9</div></div>
           </div>
         </div>
       </div>

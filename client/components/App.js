@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import axios from 'axios';
 import Search from './Search';
 import Display from './Display';
+import Detail from './Detail';
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends Component {
       detailView: null
     }
     this.createDetailView = this.createDetailView.bind(this);
+    this.clearDetailView = this.clearDetailView.bind(this);
   }
 
 
@@ -18,11 +20,14 @@ class App extends Component {
     this.setState({detailView: e.target.id});
   }
 
+  clearDetailView(e){
+    this.setState({detailView: null});
+  }
+
   render() {
-    let viewSwitcher = <Display detailView={this.state.createDetailView}/>
+    let viewSwitcher = <Display detailView={this.createDetailView}/>
     if(this.state.detailView){
-      console.log('switching view')
-      viewSwitcher = <Detail />
+      viewSwitcher = <Detail clearView={this.clearDetailView}/>
     } 
     return (
       <div>

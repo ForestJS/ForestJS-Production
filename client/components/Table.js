@@ -25,7 +25,7 @@ class Table extends Component {
       "width":"75%",
       "height":"100%",
       "float":"left",
-      "flex-direction":"column"
+      "flexDirection":"column"
     }
     let holderStyle4={
       "width":"100%",
@@ -41,14 +41,14 @@ class Table extends Component {
       "width":"100%",
       "height":"100%",
       "float":"left",
-      "flex-direction":"column"
+      "flexDirection":"column"
     }
 
 
 
     return(
       <div className="holder" style={holderStyle}>
-        <div className="holder" style={holderStyle2}><div className ="content">Node 1</div></div>
+        <div className="holder" style={holderStyle2}><div id="1" onClick={()=>this.props.detailView} className ="content">Node 1</div></div>
         <div className="holder" style={holderStyle3}>
           <div className="holder" style={holderStyle4}>
             <div className="holder" style={holderStyle5}><div className ="content">Node 2</div></div>

@@ -22,6 +22,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: hand;
+}
+.content:hover{
+    background: #96ee89;
 }
 
 

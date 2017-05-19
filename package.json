@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/server.js && ./node_modules/.bin/webpack -w",
     "webpack": "./node_modules/.bin/webpack -w",
-    "gulp": "node_modules/.bin/gulp",
     "dev": "webpack-dev-server"
   },
   "author": "CodesmithLLC https://github.com/CodesmithLLC <hello@codesmith.io>",

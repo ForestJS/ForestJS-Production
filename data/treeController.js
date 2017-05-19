@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/ForestJS');
+mongoose.connect('mongodb://forestiouser1:4estIO@ds149221.mlab.com:49221/forestio');
 mongoose.connection.once('open', () => {
   console.log('Connected with MongoDB ForestJS');
 });
@@ -17,20 +17,17 @@ let treeController = {};
 
 treeController.findTrees = function (req, res) {
   // treeQuery is input from tree search
-  let treeQuery = req.body.toLowerCase();
+  let treeQuery = req.body.treeQuery;
+  console.log('treeQuery in findTrees -->', treeQuery);
   var Tree = mongoose.model('Tree', treeSchema);
-  Tree.findOne({ 'treeQuery': {$regex: `.*${treeQuery}*.`}}, (err, tree) => {
+  Tree.find({ 'name': {$regex: `.*${treeQuery}*.`}}, (err, trees) => {
     if (err || !trees) {
-      res.status(200).json("Invalid treeQuery or password")
+      res.status(200).json("Invalid treeQuery")
     } else {
-      // 
+      console.log('trees result --> ', trees);
       let sendTreeInfo = {
-        treeQuery: trees.treeQuery,
-        id: trees._id,
-        avatar: trees.avatar,
-        desc: trees.desc,
-        collections: trees.collections,
-        items: trees.items
+        treeQuery: treeQuery,
+        returnedTrees: trees,
       }
       res.status(200).json(sendTreeInfo);
     }

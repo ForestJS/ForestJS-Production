@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/ForestJS');
+mongoose.connect('mongodb://forestiouser1:4estIO@ds149221.mlab.com:49221/forestio');
 mongoose.connection.once('open', () => {
   console.log('Connected with MongoDB ForestJS');
 });

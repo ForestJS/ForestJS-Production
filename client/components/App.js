@@ -15,25 +15,16 @@ class App extends Component {
       password: ""
     }
   }
-
-  getInitialState() {
-    
-  }
-
-  componentDidMount() {
-    
-  }
-
-
   render() {
-    <div>
+    return (
       <div>
-        <Search />
+        <div id="header">forest.js</div>
+        <div id="viewcontainer">
+          <Search/>
+          <Display/>
+        </div>
       </div>
-      <div>
-        <Display />
-      </div>
-    </div>
+    )
   }
 
 }

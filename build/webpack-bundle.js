@@ -11401,12 +11401,101 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 /* 113 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: \n  background: $darkGreen;\n             ^\n      Undefined variable: \"$darkGreen\".\n      in /Users/joshuawolters/codesmith/projects/Forest/client/scss/_search.scss (line 4, column 15)");
+exports = module.exports = __webpack_require__(114)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "body {\n  background: lightgray; }\n\n.header {\n  width: 100%;\n  position: absolute;\n  left: 0;\n  top: 0;\n  background: #5fadb5;\n  height: 60px;\n  z-index: -100; }\n\n.buttonholder {\n  padding: 5px;\n  margin: auto;\n  width: 100%;\n  margin: 0; }\n\n#collections {\n  text-align: center;\n  margin-left: 30%; }\n\n#profile {\n  float: left; }\n\n#viewercontainer {\n  background: grey;\n  border-radius: 5px;\n  display: flex;\n  justify-content: center;\n  width: 1000px;\n  height: 700px;\n  margin: auto;\n  clear: none;\n  padding: 0; }\n\n#viewerholder {\n  position: relative; }\n\n#viewer {\n  height: 700px;\n  width: 400px;\n  position: relative;\n  z-index: 5; }\n\n#detail {\n  width: 600px;\n  height: 700px;\n  text-align: center;\n  padding-top: 100px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding: 20px 20px;\n  border: solid lightgray 1px;\n  border-radius: 5px; }\n\n#detail p {\n  margin-top: -10px; }\n\n.itemview {\n  padding: 10px;\n  border: solid white 2px;\n  border-radius: 5px;\n  background-color: rgba(255, 255, 255, 0.2);\n  width: 150px;\n  height: 150px;\n  position: absolute;\n  top: 25;\n  left: 35;\n  z-index: 10;\n  cursor: hand; }\n\n#itemview0 {\n  top: 50;\n  left: 35; }\n\n#itemview1 {\n  top: 50;\n  left: 215; }\n\n#itemview2 {\n  top: 275;\n  left: 215; }\n\n#itemview3 {\n  top: 275;\n  left: 35; }\n\n#itemview4 {\n  top: 500;\n  left: 35; }\n\n#itemview5 {\n  top: 500;\n  left: 215; }\n\n#itemdetail {\n  height: 300px;\n  margin: 0px auto; }\n\n#detaildefault {\n  width: 600px;\n  height: 700px;\n  text-align: center;\n  padding-top: 100px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding: 50px 50px;\n  border: solid lightgray 1px;\n  border-radius: 5px; }\n\n#detaildefault {\n  text-align: left; }\n\nbutton {\n  margin: auto;\n  height: 40px;\n  width: 200px;\n  background: #5fadb5;\n  color: white;\n  font-size: 20px;\n  line-height: 25px;\n  text-shadow: 1px 1px black;\n  cursor: hand; }\n\n.profileviewer {\n  position: absolute;\n  right: 10px;\n  top: 10px;\n  z-index: 1000; }\n\n* {\n  font-family: Helvetica, Arial, sans-serif;\n  box-sizing: border-box;\n  background: darkestGreen; }\n", ""]);
+
+// exports
+
 
 /***/ }),
-/* 114 */,
+/* 114 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
 /* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -14,7 +14,7 @@ class Display extends Component {
   render() {
     return (
       <div id="displaycontainer">
-        <Table/>
+        <Table detailView = {this.props.detailView}/>
       </div>
     )
   }

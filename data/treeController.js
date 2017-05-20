@@ -22,14 +22,15 @@ treeController.findTrees = function (req, res) {
   var Tree = mongoose.model('Tree', treeSchema);
   Tree.find({ 'name': {$regex: `.*${treeQuery}*.`}}, (err, trees) => {
     if (err || !trees) {
-      res.status(200).json("Invalid treeQuery")
+      return res.status(500).json("Invalid treeQuery")
     } else {
       console.log('trees result --> ', trees);
-      let sendTreeInfo = {
-        treeQuery: treeQuery,
-        returnedTrees: trees,
-      }
-      res.status(200).json(sendTreeInfo);
+      // let sendTreeInfo = {
+      //   treeQuery: treeQuery,
+      //   returnedTrees: trees,
+      // }
+      // res.json(sendTreeInfo);
+      res.json(trees);
     }
   });
 }

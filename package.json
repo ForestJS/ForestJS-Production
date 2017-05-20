@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js && ./node_modules/.bin/webpack -w",
+    "start": "node server/server.js",
     "webpack": "./node_modules/.bin/webpack -w",
     "dev": "webpack-dev-server"
   },

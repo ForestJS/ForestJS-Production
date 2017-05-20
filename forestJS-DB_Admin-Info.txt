@@ -1,0 +1,16 @@
+Connecting to mLab CLI
+mongo ds149221.mlab.com:49221/forestio -u forestiouser1 -p 4estIO
+mongo ds149221.mlab.com:49221/forestio -u generaluser1 -p 4estIO
+
+
+mLab account info
+username: generaluser1
+password: 4estIO
+
+mLab databse info
+username: forestiouser1
+password: 4estIO
+
+Adding documents
+db.trees.insert ({"name" : "How to get into Codesmith 2", "branches" : [1,[2,[[4],5,[13,3]],6,9,4, 12, 9]], "depth": "4"})
+db.branches.insert({"id": 12,"name": "Handling a Block","leaves": [], "desc": "How you handle hitting a block - How do you debug, take feedback when you hit a block in your understanding (we make sure you hit a moment like this in the interview)."})

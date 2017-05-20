@@ -12,6 +12,37 @@ class App extends Component {
       detailView: null,
       searchText: '',
       searchResults: [],
+      activeTree: {
+        "_id": {
+            "$oid": "591f6b891b1e4191ea9f9e61"
+        },
+        "name": "Learn Web Development",
+        "branches": [
+                1,
+                [
+                    2,
+                    [
+                        3,
+                        [
+                            4
+                        ],
+                        5,
+                        [
+                            2,
+                            3
+                        ]
+                    ],
+                    6,
+                    9,
+                    [
+                        4,
+                        12,
+                        9
+                    ]
+                ]
+            ],
+            "depth": "4"
+          },
     }
     this.createDetailView = this.createDetailView.bind(this);
     this.clearDetailView = this.clearDetailView.bind(this);
@@ -41,7 +72,7 @@ class App extends Component {
   }
 
   render() {
-    let viewSwitcher = <Display detailView={this.createDetailView}/>
+    let viewSwitcher = <Display detailView={this.createDetailView} activeTree={this.state.activeTree}/>
     if(this.state.detailView){
       viewSwitcher = <Detail clearView={this.clearDetailView}/>
     } 

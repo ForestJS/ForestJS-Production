@@ -10,6 +10,7 @@ class Table extends Component {
     this.createTable = this.createTable.bind(this);
     this.detailView = this.props.detailView.bind(this);
   }
+  
   createTable(){
     let width = "25%"
     let holderStyle={

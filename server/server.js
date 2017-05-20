@@ -10,15 +10,11 @@ app.use(function (req, res, next) {
     next();
 })
 
-// verify request content type expected is JSON
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/',(req,res) =>{
-    console.log('req.body.treeQuery -->', req.body.treeQuery);
     treeController.findTrees(req, res);
-    // return res.json();
 });
 
 

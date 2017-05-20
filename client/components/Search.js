@@ -3,22 +3,19 @@ import React, { Component } from 'react';
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      login: null,
-      user: null
-    }
+    this.state = {}
   }
 
   
   render() {
     
-    console.log('treeSearchHandler -->', treeSearchHandler)
     const treeSearchHandler = this.props.treeSearchHandler;
+    const searchResults = this.props.searchResults;
     
     let resultsArray = [];
-    for(let i=0;i<12;i++){
+    for(let i=0;i<searchResults.length;i++){
       let searchstyler=[{"background":"rgba(0,0,0,0.2)"},{"background":"rgba(0,0,0,0.0)"} ]
-      resultsArray.push(<div style = {searchstyler[i%2]} key={i} id={i} className="searchresult">Search Result {i}</div>)
+      resultsArray.push(<div style = {searchstyler[i%2]} id={searchResults[i]._id} key={i} className="searchresult">{searchResults[i].name}</div>)
     }
 
     return (
@@ -30,8 +27,6 @@ class Search extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-
-
         {resultsArray}
       </div>
     )

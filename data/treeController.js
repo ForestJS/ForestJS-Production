@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 mongoose.connect('mongodb://forestiouser1:4estIO@ds149221.mlab.com:49221/forestio');
 mongoose.connection.once('open', () => {
-  console.log('Connected with MongoDB ForestJS');
+  console.log('Connected to MongoDB ForestJS server on mLab');
 });
 
 // Schema definition
@@ -18,18 +18,11 @@ let treeController = {};
 treeController.findTrees = function (req, res) {
   // treeQuery is input from tree search
   let treeQuery = req.body.treeQuery;
-  console.log('treeQuery in findTrees -->', treeQuery);
   var Tree = mongoose.model('Tree', treeSchema);
   Tree.find({ 'name': {$regex: `.*${treeQuery}*.`}}, (err, trees) => {
     if (err || !trees) {
       return res.status(500).json("Invalid treeQuery")
     } else {
-      console.log('trees result --> ', trees);
-      // let sendTreeInfo = {
-      //   treeQuery: treeQuery,
-      //   returnedTrees: trees,
-      // }
-      // res.json(sendTreeInfo);
       res.json(trees);
     }
   });

@@ -9,7 +9,7 @@ mongoose.connection.once('open', () => {
 var treeSchema = new Schema({
   name: String,
   desc: String,
-  children: Array,
+  branches: Array,
   tags: Array,
 })
 

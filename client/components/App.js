@@ -29,31 +29,15 @@ class App extends Component {
 
   handleSearchChange(e) {
     this.setState({searchText: e.target.value});
-    console.log('this.state.searchText on change-->', this.state.searchText)
   }
 
   handleSearchSubmit(e){
     e.preventDefault();
-    console.log('this.state.searchText on submit -->', this.state.searchText)
-    // if (e.keyCode === 13) {
-    //   axios.post('http://localhost:3000/', {
-    //     data: {
-    //         treeQuery: `some string`,
-    //         }
-    //     })
-    //     .then(res => {
-    //         console.log(res.status, 'added to the database')
-    //         this.updateAverages();
-    //     })
-    // }
 
     axios.post('http://localhost:3000/', {treeQuery: this.state.searchText})
         .then(res => {
-            // console.log('search results -->', res.data.returnedTrees)
-            console.log('search results -->', res.data)
             this.setState({searchResults:res.data})
-            console.log('state -->', this.state)
-        })
+        });
   }
 
   render() {
@@ -65,7 +49,7 @@ class App extends Component {
       <div>
         <div id="header">forest.js</div>
         <div id="viewcontainer">
-          <Search handleSearchChange={this.handleSearchChange} handleSearchSubmit={this.handleSearchSubmit}/>
+          <Search handleSearchChange={this.handleSearchChange} handleSearchSubmit={this.handleSearchSubmit} searchResults={this.state.searchResults}/>
           {viewSwitcher}
         </div>
       </div>

@@ -19,27 +19,21 @@ treeController.findTrees = function (req, res) {
   // treeQuery is input from tree search
   let treeQuery = req.body.treeQuery;
   var Tree = mongoose.model('Tree', treeSchema);
+  // Tree.find({}, (err, trees) => {
   Tree.find({ 'name': {$regex: `.*${treeQuery}*.`}}, (err, trees) => {
     if (err || !trees) {
       return res.status(500).json("Invalid treeQuery")
     } else {
+      console.log('trees -->', trees)
       res.json(trees);
     }
   });
 }
 
 
-treeController.addCollection = function (req, res) {
+treeController.addTree = function (req, res) {
   var Tree = mongoose.model('Tree', treeSchema);
-  let newArray = [];
-  Tree.findById(req.body.treeId, (err, tree) => {
-    newArray = tree.collections;
-    newArray.push(req.body.id);
-    tree.collections = newArray;
-    tree.save(function(err, updatedTree){
-      res.send(updatedTree)
-    })
-  });
+
 }
 
 module.exports = treeController;

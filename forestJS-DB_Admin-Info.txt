@@ -1,8 +1,14 @@
 Connecting to mLab CLI
 mongo ds149221.mlab.com:49221/forestio -u forestiouser1 -p 4estIO
+mongo ds149221.mlab.com:49221/forestio -u generaluser1 -p 4estIO
 
-Logging into mLab account
+
+mLab account info
 username: generaluser1
+password: 4estIO
+
+mLab databse info
+username: forestiouser1
 password: 4estIO
 
 Adding documents

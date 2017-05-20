@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-const userController = require('./../data/branchController');
+const branchController = require('./../data/branchController');
 const treeController = require('./../data/treeController');
 
 app.use(function (req, res, next) {
